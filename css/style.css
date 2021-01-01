@@ -1,0 +1,404 @@
+/*-------Fonts---------*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("../fonts/font-awesome/fontawesome-webfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fa {
+  font-family: 'FontAwesome';
+}
+
+/*---playfair---*/
+@font-face {
+  font-family: playfairRegular;
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-family: playfairBold;
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: playfairItalic;
+  src: url("../fonts/Playfair_Display/PlayfairDisplay-Italic.ttf");
+}
+
+/*---Inconsolata---*/
+@font-face {
+  font-family: inconsolata;
+  src: url("../fonts/Inconsolata/Inconsolata-Regular.ttf");
+}
+
+/*---Ubuntu---*/
+@font-face {
+  font-family: ubuntu;
+  src: url("../fonts/Ubuntu/Ubuntu-Light.ttf");
+}
+
+/*---Dodis---*/
+@font-face {
+  font-family: dodisRegular;
+  src: url("../fonts/dodis/Dodis-Regular.ttf");
+}
+
+/*=============================================
+=            Global            =
+=============================================*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #292828;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #fc6335;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 5px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+/*=====  End of Global  ======*/
+/*-------Layout-----*/
+.container {
+  max-width: 1060px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+main {
+  /* helper for footer */
+  min-height: calc(100vh - 70px);
+}
+
+/*-------header-----*/
+header {
+  background-color: black;
+  /* display: flex;
+    justify-content: flex-start; */
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  padding: 10px;
+  color: #f8f7f7;
+  font-size: 3em;
+  font-family: impact, 'Segoe UI', 'Courier New', Courier, monospace;
+}
+
+/*----Main------*/
+/*----------  Gallery  ----------*/
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  /* grid-template-columns - responsive without mediaqueries.
+    200px is the minimum img size.
+    each column is 200px minimum (one pic fit)  will grow to 1fr until screen width size is 400px - then two imgs can fit each 200px size. next breakpoint is 600px - 3 columns can fit. 
+    */
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* rows - undefiend, automatically make rows as needed. with auto height-the height of the img in that row.*/
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > img {
+  /* display:block - img is inline by default- makes it have "line-height" applied to the bottom. display block gets rid of that line */
+  display: block;
+  /* width: 100% - img in grid cell will grow width to fit into changing cell size */
+  width: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.grid-container > img:hover {
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  /* box-shadow: 0 0 10px 6px rgba(0, 140, 186, 0.5); */
+}
+
+/*=============================================
+=            Meme Container            =
+=============================================*/
+.meme-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px 0;
+}
+
+.meme-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.meme-container > button {
+  margin: 5px;
+  z-index: 1;
+}
+
+.txt-editor {
+  padding: 5px 10px;
+  border: 1px #f4511e solid;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.memeCanvas {
+  border: 2px solid white;
+  border-radius: 2px;
+  margin: 5px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+}
+
+input[type=number] {
+  width: 45px;
+}
+
+#dl {
+  margin: 5px;
+}
+
+/*=====  End of Meme Container  ======*/
+/*----------  contact  ----------*/
+/*----Footer----*/
+footer {
+  height: 50px;
+  background-color: black;
+}
+
+/*=============================================
+=            Helpers            =
+=============================================*/
+/* vertically centering everything: */
+.vertical-center-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.clean-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clean-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/*=====  End of Helpers  ======*/
+/*---flex---*/
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.inline-flex {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.space-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.flex-full {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+/*-------Layout-----*/
+.container {
+  max-width: 1060px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+main {
+  min-height: calc(100vh - 70px);
+}
+
+/*-------header-----*/
+header {
+  background-color: black;
+}
+
+header h1 {
+  color: #f8f7f7;
+  /* -webkit-text-stroke: 1px rgb(248, 81, 81); */
+  /* text-shadow: 1px 1px rgb(248, 81, 81); */
+  /* letter-spacing: 2px; */
+  font-size: 3em;
+  padding: 20px;
+  font-family: impact, 'dodisRegular', 'Courier New', Courier, monospace;
+}
+
+/*----Main------*/
+/*----------  Gallery  ----------*/
+.grid-container {
+  display: -ms-grid;
+  display: grid;
+  /* grid-template-columns - responsive without mediaqueries.
+    200px is the minimum img size.
+    each column is 200px minimum (one pic fit)  will grow to 1fr until screen width size is 400px - then two imgs can fit each 200px size. next breakpoint is 600px - 3 columns can fit. 
+    */
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* rows - undefiend, automatically make rows as needed. with auto height-the height of the img in that row.*/
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > img {
+  /* display:block - img is inline by default- makes it have "line-height" applied to the bottom. display block gets rid of that line */
+  display: block;
+  /* width: 100% - img in grid cell will grow width to fit into changing cell size */
+  width: 100%;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.grid-container > img:hover {
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  /* box-shadow: 0 0 10px 6px rgba(0, 140, 186, 0.5); */
+}
+
+/*=============================================
+=            Meme Container            =
+=============================================*/
+.meme-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* margin: 20px 0; */
+}
+
+.meme-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.memeCanvas {
+  border: 2px solid white;
+  border-radius: 2px;
+  margin: 5px;
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+input[type=text] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+}
+
+input[type=number] {
+  width: 45px;
+}
+
+/*=====  End of Meme Container  ======*/
+.hidden {
+  display: none;
+}
+
+/*----------  contact  ----------*/
+/*----Footer----*/
+footer {
+  height: 50px;
+  background-color: black;
+}
+/*# sourceMappingURL=style.css.map */
